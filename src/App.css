@@ -35,3 +35,44 @@ body,
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
+
+/* Light theme */
+.chat-header.light {
+  background-color: #4a4a4a;
+  color: white;
+}
+
+/* Dark theme */
+.chat-header.dark {
+  background-color: #4a4a4a;
+  color: #e0e0e0;
+}
+
+/* Chat container themes */
+.app-container.light .chat-container {
+  background-color: #ece5dd;
+}
+
+.app-container.dark .chat-container {
+  background-color: #1e1e1e;
+}
+
+.app-container.light .message-customer {
+  background-color: #25d366;
+  color: white;
+}
+
+.app-container.dark .message-customer {
+  background-color: #25d366;
+  color: white;
+}
+
+.app-container.light .message-support {
+  background-color: #fff;
+  color: black;
+}
+
+.app-container.dark .message-support {
+  background-color: #fff;
+  color: black;
+}

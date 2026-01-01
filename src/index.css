@@ -66,3 +66,21 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container.light {
+  background-color: #ffffff;
+  color: #213547;
+}
+
+.app-container.dark {
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
+}

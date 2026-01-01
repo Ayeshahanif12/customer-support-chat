@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "./context/ThemeContext";
 import EntryScreen from "./components/EntryScreen/EntryScreen";
-import "./App.css";
 import ChatContainer from "./components/EntryScreen/chat/ChatContainer";
+import "./App.css";
 
 function App() {
-  // top-level state
+  const { theme } = useContext(ThemeContext);
   const [currentRole, setCurrentRole] = useState(null);
   const [customerName, setCustomerName] = useState("");
 
-  // restore session on app load
   useEffect(() => {
     const savedRole = localStorage.getItem("chatAppRole");
     const savedName = localStorage.getItem("chatAppName");
@@ -19,46 +19,36 @@ function App() {
     }
   }, []);
 
-  // called from EntryScreen
-  function handleRoleSelect(role, name) {
+  const handleRoleSelect = (role, name) => {
     setCurrentRole(role);
     setCustomerName(name);
-
     localStorage.setItem("chatAppRole", role);
     localStorage.setItem("chatAppName", name);
-  }
+  };
 
-  // BACK = role change (data safe)
-  function handleBack() {
+  const handleBack = () => {
     setCurrentRole(null);
-    console.log("buttonclicked");
-    
-  }
+  };
 
-  // LOGOUT = full reset
-  function handleLogout() {
+  const handleLogout = () => {
     setCurrentRole(null);
     setCustomerName("");
-    localStorage.removeItem("chatAppRole");
-    localStorage.removeItem("chatAppName");
-    localStorage.removeItem("chatMessages"); // future use
-    console.log("logout");
-    
-  }
+    localStorage.clear();
+  };
 
-  // Entry screen
-  if (!currentRole) {
-    return <EntryScreen handleRoleSelect={handleRoleSelect} />;
-  }
-
-  // Chat screen
   return (
-    <ChatContainer
-      role={currentRole}
-      customerName={customerName}
-      onBack={handleBack}
-      onLogout={handleLogout}
-    />
+    <div className={`app-container ${theme}`}>
+      {!currentRole ? (
+        <EntryScreen handleRoleSelect={handleRoleSelect} />
+      ) : (
+        <ChatContainer
+          role={currentRole}
+          customerName={customerName}
+          onBack={handleBack}
+          onLogout={handleLogout}
+        />
+      )}
+    </div>
   );
 }
 

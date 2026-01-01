@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 import "./EntryScreen.css";
 
@@ -6,11 +7,28 @@ import "./EntryScreen.css";
 
 
 function EntryScreen({ handleRoleSelect }) {
+    const { theme, toggleTheme } = useContext(ThemeContext);
     const [selectedRole, setSelectedRole] = useState("");
 
     const [name, setName] = useState("");
     return (
         <div className="entry-screen">
+            <button
+                type="button"
+                onClick={toggleTheme}
+                style={{
+                    position: "fixed",
+                    top: "10px",
+                    right: "10px",
+                    width: "auto",
+                    padding: "5px 10px",
+                    fontSize: "12px",
+                    backgroundColor: theme === "light" ? "#555" : "#e0e0e0",
+                    color: theme === "light" ? "#fff" : "#000",
+                }}
+            >
+                {theme === "light" ? "Dark Mode" : "Light Mode"}
+            </button>
             <h1>Continue As </h1>
             {selectedRole === "customer" && (
                 <>

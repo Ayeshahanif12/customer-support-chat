@@ -23,7 +23,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
-  background: #075e54;
+  background: #4a4a4a;
   color: white;
 }
 
@@ -40,6 +40,7 @@
   background-color: #25d366;
   color: white;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .chat-header button:hover {
@@ -119,11 +120,11 @@
 /* Name below bubble */
 .message-sender {
   font-size: 10px;
-  color: rgba(0,0,0,0.6); /* support */
+  color: #888888;
 }
 
 .message-customer .message-sender {
-  color: rgba(0,0,0,0.6); /* customer name color outside bubble */
+  color: #888888;
 }
 
 /* Status inside bubble (bottom-left) */
@@ -183,4 +184,3 @@
   font-style: italic;
   margin: 4px 12px;
 }
-
