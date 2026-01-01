@@ -1,0 +1,37 @@
+/* App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4e7ec;
+}
+
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+}
+
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  background: white;
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
